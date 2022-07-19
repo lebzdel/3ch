@@ -11,6 +11,14 @@
 <div class="container py-3">
     <header th:insert="blocks/header.html :: header"></header>
 
+    <div th:each="element : ${threads}" class="alert alert-info mt-2">
+        <h3 th:text="${element.title}"/>
+        <p th:text="${element.name}"/>
+        <p th:text="${element.date}"/>
+        <p th:text="${element.time}"/>
+        <a th:href="'/thread/' + '${element.id}'">Далее</a>
+    </div>
+
     <footer th:insert="blocks/footer.html :: footer"></footer>
 </div>
 
