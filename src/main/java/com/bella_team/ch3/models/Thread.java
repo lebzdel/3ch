@@ -72,4 +72,12 @@ public class Thread {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void update(String title, String name, String fullText) {
+        this.title = title;
+        this.fullText = fullText;
+        this.name = name;
+        this.date = LocalDate.now();
+        this.time = LocalTime.now();
+    }
 }

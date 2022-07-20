@@ -11,12 +11,16 @@
 <div class="container py-3">
     <header th:insert="blocks/header.html :: header"></header>
 
-    <div th:each="element : ${threads}" class="alert alert-info mt-2">
+    <div th:each="element : ${thread}" class="alert alert-info mt-2">
         <h3 th:text="${element.title}"/>
         <p th:text="${element.name}"/>
         <p th:text="${element.date}"/>
         <p th:text="${element.time}"/>
-        <a th:href="'/thread/' + ${element.id} " class="btn btn-warning">Далее</a>
+        <p th:text="${element.fullText}"/>
+        <a th:href="'/thread/' + ${element.id} + '/edit'" class="btn btn-warning mb-2">Редактировать</a>
+        <form th:action="'/thread/' + ${element.id} + '/delete'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
     </div>
 
     <footer th:insert="blocks/footer.html :: footer"></footer>
